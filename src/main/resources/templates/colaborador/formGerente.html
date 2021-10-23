@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<title>Registrar Colaborador</title>
+
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Configurações nossas -->
+<link rel="stylesheet" href="css/barra_navegacao.css">
+<link rel="stylesheet" href="css/cadastrog.css">
+ <!-- Fontawesome -->
+<link  rel="stylesheet" href="fontawesome/css/all.min.css">
+
+</head>
+
+<body>
+<!-- Start NavBar -->
+	<header>
+		<div class="container" id="nav-container">
+		   <nav class="navbar navbar-expand-lg fixed-top">
+		   <div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+			  <a href="#" class="navbar-brand"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+				aria-expanded="false" aria-label="Toogle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+					<div class="navbar-nav">
+						 <a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+                         <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+                         <a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+                         <a class="nav-item nav-link" id="exit-menu" href="/logout">Sair</a>
+					</div>
+					<div class="tema">
+					<button class="btn btn-light" onclick="mudaTema()"><i class="fas fa-moon"></i></button>
+					</div>
+				 </div>
+			</nav>
+		  </div>
+	  </header>
+<!-- End NavBar -->
+	<main>
+		<!--FORMULARIO ESQUERDO-->
+		<div class="container">
+		<div id="alertCpf4"class="alert alert-danger in hide" role="alert" ><i class="fas fa-exclamation-triangle"></i>Cpf não pode conter todos os números iguais !
+ 		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+		<div id="alertCpf"class="alert alert-danger in hide" role="alert" ><i class="fas fa-exclamation-triangle"></i>Cpf deve conter 11 caracteres !
+ 		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+ 		  <div id="alertCpf2"class="alert alert-danger in hide" role="alert" ><i class="fas fa-exclamation-triangle"></i>Cpf inválido !
+ 		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+ 		  <div id="alertCpf3"class="alert alert-success in hide" role="alert" ><i class="fas fa-check-circle"></i>CPF conferido !
+ 		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+			<form class="form-1" method="post">
+				<div class="row">
+					<div class="col-sm">
+						<h2>Cadastrar Gerente</h2>
+						  <div class="form-group">
+							<label for="nome">Nome</label>
+							<input type="text" id="nome" class="form-control" value="" name="nome" placeholder="Nome" size="45"
+							 pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Digite um nome e sobrenome válidos!" required>
+							<small  class="form-text text-muted">Nome completo do Gerente</small>
+						  </div>
+						 <div class="form-group">
+							<label for="cpf">CPF</label>
+							<input type="text" id="cpf" class="form-control" value="" name="cpf" placeholder="12345678910" size="11" pattern="^\d{3}\d{3}\d{3}\d{2}(?!(\d)\1{11}$)"
+							title="O cpf deve conter apenas números, sem os caracteres e não deve ter todos os números iguais!" onblur="validaCpf()" required >
+							<small class="form-text text-muted">Numérico como no exemplo</small>
+						</div>
+						<div class="form-group">
+							<label for="login">Login</label>
+							<input type="text" id="login" class="form-control" value="" name="login" placeholder="Login" size= "25"  pattern="^[a-zA-Z][a-zA-Z0-9]{1,25}$" title="Seu login poderá ter no máximo 25 caracteres,
+							no minimo 3 caracteres, pode conter letras e números! Não deve conter caracteres especiais e nem espaços entre palavras!" required >
+							<small class="form-text text-muted">Login que o usuario acessara o sistema</small>
+						</div>
+						<div class="form-group">
+							<label for="senha">Senha</label>
+							<input type="password" id="senha" class="form-control" value="" name="senha" placeholder="Senha" size="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+							title="A senha deve conter 8 caracteres, pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial"  required>
+							<small  class="form-text text-muted">Senha para acessar o sistema</small>
+						</div>
+					</div>
+					<!--FORMULARIO DIREITO-->
+					<div class="col-sm">
+						<div class="form-group2">
+							<label for="email">Email</label>
+							<input type="email" id="email" class="form-control" value="" name="email" placeholder="Email do colaborador"  pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" required >
+							<small class="form-text text-muted">Nunca vamos compartilhar seu email com ninguém.</small>
+						</div>
+					<div class="form-group2">
+						<select class="form-select" name="cargoId">
+						  <option th:each="cargo : ${cargo}" th:value="*{cargo.id}" th:text="${cargo.nome}"></option>
+                        </select>
+							<a href="" onclick="open('cargos','cargos.html','status=no,Width=820,Height=485');"><span>Não encontrou seu cargo? Clique aqui</span></a>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-mensagem">Cadastrar Gerente  &nbsp;&nbsp;<i class="fas fa-user-plus"></i></button></div>
+<!--Modal pop up-->
+					<div class="modal" tabindex="-1" id="modal-mensagem">
+						<div class="modal-dialog">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <h5 class="modal-title">Confirmação de dados</h5>
+							  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							  <h6>Os dados estão corretos? Confirma o envio do formulário?</h6>
+							</div>
+							<div class="modal-footer">
+							 <button type="submit" class="btn btn-secondary">Confirmar</button>
+							 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Sair</button>
+							</div>
+						  </div>
+					</div>
+				 </div>
+<!---End Modal-->
+			</div>
+		</div>
+	</form>
+  </div>
+</main> 
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script defer src="fontawesome/js/all.js"></script>
+<script src="js/scripts.js"></script>  
+</body>
+</html>

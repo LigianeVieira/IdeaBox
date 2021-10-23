@@ -1,0 +1,98 @@
+body{
+    font-family: 'Roboto', sans-serif;
+   background-color: #f3f3f3;
+   
+}
+
+.container{
+   margin-top: 86px;
+   width:95%;
+}
+h5{
+	margin-top:3px;
+    font-size: 23px;
+    background-color: #000440;
+    color:white;
+    width: 100%;
+    padding: 5px;
+  
+    
+}
+.container-fluid{
+	padding-right:0;
+    padding-left:0;
+}
+.btn-secondary{background-color:#000440;}
+
+fieldset{
+    box-sizing: border-box;
+    z-index: 1;
+   
+}
+
+.fa-check{color: #05F00D;}
+.fa-times{color: #F03C11;}
+.fa-envelope{color: #000440;}
+.fa-edit{color:#F3CA06;}
+.fa-file-upload{color:#883DF5;}
+
+.fa-share{color: #05F00D;}
+.fa-archive{color: #883DF5;}
+
+table {
+width:100 wp;
+table-layout:fixed;
+position:relative;
+top:-8px;
+
+}
+
+
+td {
+word-wrap:break-word;
+}
+
+.fa-envelope{
+	color:#7703FB;
+}
+.fa-times{color:#E62105;}
+.fa-check{color:#31FF12;}
+.fa-share{color:#0D6B28;}
+.fa-archive{color:#FA6109;}
+.fa-folder-open{color:#FA6109;}
+.btn-light{
+    background-color: #F3CA06;
+    color:#ffffff;
+    border-style: none;
+}   
+.dark {
+    background: #0f1216;
+}
+.dark main{
+    font-family: 'Roboto', sans-serif;
+    color:#ffffff
+        
+}
+
+.dark .tema button {
+   color: #ffffff;
+   background: #1c1c1c;
+   border-style: none;
+   }
+      
+
+.btn1{
+	 background-color: transparent;
+    border: none;
+}
+a{color: #000440;}
+
+.table thead th { 
+  
+  color:#000440;
+}
+.aprovar, .enviar{
+   background-color: transparent;
+    border: none;
+    border-style: none;	
+}

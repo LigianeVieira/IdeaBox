@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+ <html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+ 
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Cadastrar Cargos</title>
+
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Nossas Configurações -->
+<link rel="stylesheet" href="css/barra_navegacao.css">
+<link rel="stylesheet" href="css/cargos.css"/>
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Fontawesome -->
+<link  rel="stylesheet" href="fontawesome/css/all.min.css" >
+</head>
+
+<body>
+<!-- start menu-->
+
+	<header>
+		<div class="container" id="nav-container">
+		  <nav class="navbar navbar-expand-lg fixed-top">
+		  <div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+			<a href="#" class="navbar-brand"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+			aria-expanded="false" aria-label="Toogle navigation"><span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+			  <div class="navbar-nav">
+				<a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+                <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+                <a class="nav-item nav-link" id="team-menu" href="/timeline/1">Timeline</a>
+                <a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+                <a class="nav-item nav-link" id="exit-menu" href="/logout">Sair</a></div>
+			 </div>
+		   </nav>
+		</div>
+	</header>
+<!-- end menu-->
+
+<!-- Formulario Main-->
+     <form class="form-1" method="post">
+	   <fieldset>
+         <legend>Cadastro de Cargos:</legend>
+           <label for="cargo">Nome do Cargo:</label>
+           <input type="text" id="cargo" name="nome" placeholder="Digite o cargo" required><br><br>
+	        <button type="submit" class="btn btn-primary" onclick="cargo()">Cadastrar &nbsp;&nbsp;<i class= "fas fa-user-plus"></i></button>
+	     </fieldset>  
+     </form>
+<!-- Formulario Main-->
+
+       <div class="container">
+         <div class="row">
+           <div class="col-sm"></div>
+            <div class="col-sm">
+             <img src="../img/equipe3-removebg-preview.png" class="img" alt="" >
+            </div>
+            <div class="col-sm"></div>
+         </div>
+     </div>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script defer src="fontawesome/js/all.js"></script>
+</body>
+</html>

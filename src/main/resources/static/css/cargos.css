@@ -1,0 +1,40 @@
+/* Gerais */
+
+body{
+
+    font-family: 'Roboto', sans-serif;   
+   background-color:#f3f3f3;
+     
+       
+} 
+
+/* questionario*/ 
+.form-1{
+    margin-top: 20%;
+    margin-left: 40%;
+ 
+}
+legend{
+    color: #000440;
+}
+label{
+    color: #000440;
+}
+
+.btn-primary{
+    margin-top: 25px; 
+    border-radius: 12px;
+    background-color:#000440;
+    border: none;
+    
+}
+
+.btn-primary:hover{
+    
+   background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+}
+
+.form-control#SelectForm{
+	 text-transform: lowercase;
+}
+

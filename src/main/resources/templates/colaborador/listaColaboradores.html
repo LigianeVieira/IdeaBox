@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<title>Lista de colaboradores</title>
+
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+ <!-- Configurações nossas -->       
+<link rel="stylesheet" href="css/barra_navegacao.css">
+<link rel="stylesheet" href="css/listagem.css">
+ <!-- Fontawesome -->
+<link  rel="stylesheet" href="fontawesome/css/all.min.css" >
+
+</head>
+<body>
+   <header>
+	  <div class="container" id="nav-container">
+		<nav class="navbar navbar-expand-lg fixed-top">
+		<div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+		   <a href="#" class="navbar-brand"></a>
+			 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+			 aria-expanded="false" aria-label="Toogle navigation">
+			 <span class="navbar-toggler-icon"></span>
+			 </button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+				   <div class="navbar-nav">
+					 <a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+                     <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+                     <a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+                     <a class="nav-item nav-link" id="exit-menu" href="/logout">Sair</a>
+					</div>
+               <div class="tema">
+                <button class="btn btn-light" onclick="mudaTema()"><i class="fas fa-moon"></i></button>
+               </div>
+			  </div>
+			 </nav>
+		   </div>
+	   </header>
+	<main>   
+	   <h5> Colaboradores</h5>
+	     <div class="container-fluid">
+	       <table class="table table-info table-striped">
+             <thead>
+              <tr>
+               <th scope="col">Nº</th>
+               <th scope="col">Nome</th>
+               <th scope="col">Cpf</th>
+               <th scope="col">Cargo</th>
+               <th scope="col">Login</th>
+               <th scope="col">Email</th>
+               <th scope="col">Ações </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="colaborador : ${colaboradores}" >
+  <!-- Modal Excluir -->
+          <div class="modal fade" id="excluir" tabindex="-1" aria-labelledby="excluirLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="excluirLabel">Exclusão</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <div class="modal-body">
+                   <p> Você confirma a exclusão dos dados</p>
+                 </div>
+                <div class="modal-footer">
+                   <button type="submit" class="btn btn-secondary" th:href="${(#mvc.url('CC#deletarColaborador').arg(0, colaborador.id)).build()}">Confirmar</button>
+                   <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+         <td><span th:text="${colaborador.id}"></span></td>
+         <td><span th:text="${colaborador.nome}"></span></td>
+	     <td><span th:text="${colaborador.cpf}" ></span></td>
+	     <td><span th:text="${colaborador.cargo.nome}" ></span></td>
+	     <td><span th:text="${colaborador.login}" ></span></td>
+	     <td><span th:text="${colaborador.email}" ></span></td>
+	     <td><button type="button" class="btn1" data-bs-toggle="modal" th:attr="data-bs-target='#tudoModal' +*{colaborador.id}"><i class="far fa-edit" data-bs-toggle="tooltip" data-bs-placement="left" title="Editar dados colaborador">
+         </i></button>
+         <a th:href="${(#mvc.url('CC#deletarColaborador').arg(0, colaborador.id)).build()}"><i class="fas fa-trash" data-bs-toggle="tooltip" data-bs-placement="right" title="Excluir colaborador"></i></button></i></a></td>
+ <!-- Modal Editar-->
+ 	    <div class="modal fade" th:id="*{'tudoModal' + {colaborador.id}}" tabindex="-1" aria-labelledby="tudoModalLabel" aria-hidden="true">
+           <div class="modal-dialog"> 
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="tudoModalLabel">Mudar  credenciais</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+               <div class="modal-body">
+                 <form method="post" action="/editarTudo">
+                  <div class="mb-3">
+                    <input type="hidden" th:value="*{colaborador.id}" class="form-control" name="id" id="id">
+                    <label for="nome" class="form-label">Mudar nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome"  th:value="*{colaborador.nome}">
+                    <label for="cargo" class="form-label">Cargo</label>
+                   <select class="form-select" name="cargoId">                 
+                     <option th:each="cargo : ${cargos}" th:value="*{cargo.id}" th:text="${cargo.nome}"></option>
+                   </select>
+	                <label for="login" class="form-label">Login</label>
+                    <input type="text" class="form-control" id="login" name="login"  th:value="*{colaborador.login}">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="text" class="form-control" id="email" name="email"  th:value="*{colaborador.email}">
+                  </div>
+                  <div class="modal-footer">
+                  <button type="submit" class="btn btn-secondary">Aceitar</button>
+                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+               </form>
+              </div>
+            </div>
+          </div>
+        </div>
+       </tr>
+     </tbody>
+   </table>
+   <button class="btn btn-primary"><a href="/cadastrarColaborador">Cadastrar Colaborador  &nbsp;&nbsp;<i class="fas fa-user-plus"></i></a></button>
+</div>
+</main>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script defer src="fontawesome/js/all.js"></script>
+<script src="js/scripts.js"></script>  
+</body>
+</html>

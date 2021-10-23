@@ -1,0 +1,155 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f3f3;
+    margin-top:60px;
+
+}
+main{
+	margin-top:100px;}
+	
+h1{
+	margin-top:-12px;
+	background-color:#000440;
+	color:white;
+	font-size:18px;
+	padding:5px;
+}
+
+.img-thumbnail{
+    margin: 400px 0px 20px 0px;
+}
+.btn-primary{
+    width: 95%;
+    margin-top: 7%; 
+    border-radius: 8px;
+    background-color:#000440;
+    border: none;
+    
+}
+.btn-primary:hover{
+ background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+}
+
+.contador{
+    margin-top: 8%;
+}
+
+.profile{
+    margin-top: 8%;
+}
+
+.profile h4{
+    margin-top: 2%;
+}
+
+.table tr{
+word-wrap: break-word
+}
+
+
+.btn-primary a{
+	text-decoration: none;
+    color: white;
+    }
+   
+         
+.imagcolaborador{
+        width: 100%;
+      position: relative;
+      right: 30%;
+    }
+
+.admin{
+    width: 80%;
+    position: relative;
+    right:20%;
+}
+.gerente{
+    width: 80%;
+    position: relative;
+    right: 20%;
+}
+ .btn1{
+position: absolute;
+left: 86%;
+background-color: transparent;
+border: none;
+ }
+ .btn2{
+ position: absolute;
+left: 81.5%;
+background-color: transparent;
+border: none;
+ }
+ 
+ .fa-times{
+ position: absolute;
+left: 96%;
+color: #000440;
+ 
+ }
+ 
+ .fa-check{
+position: absolute;
+left: 92%;
+color: #000440;
+}
+
+.fa-edit{
+position: absolute;
+left: 92%;
+color: #000440;
+	
+}
+
+.fa-envelope{
+	position: absolute;
+left: 83%;
+color: #000440;
+font-size: 14pt;
+}
+
+.btn-light{
+    background-color: #F3CA06;
+    color:#ffffff;
+    border-style: none;
+}
+.dark {
+    background:#0f1216 ;
+  }
+.dark main{
+    font-family: 'Roboto', sans-serif;
+    color:#ffffff
+    
+  }
+  
+.dark .tema button {
+    color: #ffffff;
+    background: #1c1c1c;
+    border-style: none;
+  }
+.dark h6{
+    color:#ffffff;
+}
+.dark  .btn-primary{
+    width: 95%;
+    margin-top: 7%; 
+    border-radius: 8px;
+    background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+   border: none;
+    
+}
+.dark .btn-primary:hover{
+	 background-color:#000440;
+} 
+
+
+table {
+width:500px;
+table-layout:fixed;
+}
+
+td {
+word-wrap:break-word;
+
+}

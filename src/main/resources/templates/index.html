@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<title>Idea in Box - a sua agencia web</title>
+
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Nossas Configurações -->
+<link rel="stylesheet" href="css/barra_navegacao.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/footer.css">
+<!-- Fontawesome -->
+<link  rel="stylesheet" href="fontawesome/css/all.css" >
+<link  rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+
+<!--Paralax-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+
+</head>
+<body>
+
+	<header>
+		<div class="container" id="nav-container">
+			<nav class="navbar navbar-expand-lg fixed-top">
+			<div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+			<a href="#" class="navbar-brand"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+			aria-expanded="false" aria-label="Toogle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+			  <div class="navbar-nav">
+
+					<a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+					<a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+					<a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+					<a class="nav-item nav-link" id="exit-menu" href="/logout">Sair</a>
+					</div>
+				</div>
+				
+			</nav>
+		</div>
+	</header>
+	
+	<main>
+
+		<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+		<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"
+				aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+			<div class="carousel-item active">
+			<img src="img/Banner2.png" class="d-block w-100" alt="...">
+			<div class="carousel-caption d-none d-md-block">
+
+			<h5>Pense</h5>
+			<p>Sugestões inovadores podem mudar o mundo!</p>
+			</div>
+			</div>
+			<div class="carousel-item">
+			<img src="img/Banner4.png" class="d-block w-100" alt="...">
+			<div class="carousel-caption d-none d-md-block">
+			
+			<h5>Idea in Box</h5>
+			<p>Tire suas sugestões do papel e aprimore com Tecnologia</p>
+			</div>
+			</div>
+				<div class="carousel-item">
+				<img src="img/equipe.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+				<h5>Otimize</h5>
+				<h6>Transforme sugestões em projetos, agilize seu processo e inclua sua equipe!</h6>
+				</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<!--About area-->
+		<div class="about-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+					<h3 class="main-title">Idea in box</h3>
+					</div>
+					<div class="col-md-6">
+					<img class="img-fluid" id="luzes" src="img/thumb-1920-855715.jpg"  alt="Idea in box">
+					</div>
+					<div class="col-md-6">
+						<h3 class="about-title">Um projeto para o futuro</h3><br>
+						<p class="projeto">Criado para facilitar a vida de colaboradores e gestores que prezam pelo bem-estar da empresa.</p>
+						<p>Vantagens de implementar o Idea in Box em sua empresa:</p>
+						<ul id="about-list">
+							<li><i class="fas fa-check"></i> Chance de ouvir pontos de vistas diferentes sobre a estrutura da empresa</li>
+							<li><i class="fas fa-check"></i> Estudos comprovam que colaboradores felizes tem produtividade aumentada em até 30%</li>
+							<li><i class="fas fa-check"></i> Incentiva seus colaboradores a expressarem suas idéias</li>
+							<li><i class="fas fa-check"></i> Alto sigilo das sugestões</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- End Area -->	
+<!--SERVIÇOS AREA-->
+		<div class="services-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+					<h3 class="main-title">	Funcionalidades do Sistema</h3>
+					</div>
+					<div class="col-md-4 service-box"><i class="fas fa-lightbulb"></i>
+					<h4>Criar sua sugestão para a empresa</h4>
+					<p>Os colaboradores da empresa ajudam a melhorar a mesma dando sugestões para ela.</p>
+					</div>
+					<div class="col-md-4 service-box"><i class="fas fa-user-plus"></i>
+					<h4>Registrar colaboradores</h4>
+					<p>Você pode registrar colaboradores facilmente atráves do sistema.</p>
+					</div>
+					<div class="col-md-4 service-box"><i class="fas fa-cogs"></i>
+					<h4>Administrar sugestões</h4>
+					<p>Os administradores podem remodelar sugestões e ter controle sobre elas.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- End Serviços Area -->
+		<!--Start Historia-->
+		<div class="about-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+					<h3 class="main-title">Como começou</h3>
+					</div>
+						<div class="col-md-6">
+						<br><br><p class="texto">O projeto iniciou-se com o Programa Entra21, não foi fácil termos este "insight", contamos com a ajuda de várias mentes pensantes!</p>
+						<p class="texto">Foram várias ideias, até chegarmos neste projeto, que alia o contemporâneo com o atual: a Tecnologia!</p>
+						<p class="texto">Queriamos dar ênfase a cultura de integração entre empresas e colaboradores, por causa disso, surgiu a ideia deste sistema que dará uma nova roupagem e aliará na união de conceitos: ideias!</p>
+						<p class="texto">Acreditamos que este projeto poderá ser ainda um "case de sucesso", talvez não hoje mais no futuro com um pouco mais de refinação e conhecimento!</p>
+					    <p class="texto">Para os novos grupos que irão ter esta mesma experiência que nós tivemos, deixamos um recado:"Sejam persistentes, a caminhada não será fácil, mas se vocês acreditarem no potencial de vocês e do projeto, da ideia em si, tudo dará certo!"</p>
+					</div>
+					<div class="col-md-6">
+					<img class="img-fluid " id="criatividade" src="img/comeco-removebg-preview.png" alt="Criatividade">
+				</div>
+					</div>
+					</div>
+		</div>
+	<!-- End Historia -->	
+	<!--Grupo-->
+		<div class="about-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+					<h3 class="main-title">O Grupo</h3>
+					</div>
+					<div class="col-md-6">
+					<img class="img-fluid" id="equipe" src="img/grupo-removebg-preview.png" alt="Grupo">
+					</div>
+					<div class="col-md-6">
+					<ul class="grupo">
+						<li><a href="https://www.linkedin.com/mwlite/in/davi-saviano-moraes-574797214"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>&nbsp;&nbsp;Davi Saviano Moraes</li>
+						<li><a href="https://www.linkedin.com/in/gustavo-guirado-dos-santos-b18796214/"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>&nbsp;&nbsp;Gustavo Guirado dos Santos</li>
+						<li><a href="https://www.linkedin.com/in/ligiane-vieira-30a80681/"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>&nbsp;&nbsp;Ligiane Vieira</li>
+						<li><a href="https://br.linkedin.com/in/luiz-miguel-poteriko-santiago-5732171a3/en?trk=people-guest_people_search-card"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>&nbsp;&nbsp;Luiz Miguel Poteriko Santiago</li>
+					</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- End GrupoArea -->	
+</main>
+	<footer class="rodape">
+	<div id="voltarTopo"></div>
+	<a href="#" id="subir"><i class="fas fa-caret-up"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voltar ao Topo"></i></a>
+		
+		<div class="social-icons">
+			<a href="https://pt-br.facebook.com/"><i class="fab fa-facebook-f" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Facebook"></i></a>
+			<a href="https://twitter.com/?lang=pt"><i class="fab fa-twitter" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Twitter"></i></a>
+			<a href="https://www.instagram.com/luz.shine23/"><i class="fab fa-instagram" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Instagram"></i></a>
+			<button type="button" class="btn btn-ligt" data-bs-toggle="modal" data-bs-target="#contatoModal" data-bs-whatever="@mdo"><i class="fa fa-envelope" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Contato"></i></button>
+       </div>
+       
+<!-- Modal Contato -->
+      <div class="modal fade" id="contatoModal" tabindex="-1" aria-labelledby="contatoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contatoLabel">Entre em contato e nos dê sua opinião sobre o sistema! </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/email-send1">
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Digite sua mensagem e no final o seu E-mail:</label>
+            <textarea name="text" class="form-control" id="message-text"></textarea>
+          </div>
+         
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Enviar messagem</button>
+        </form>
+       </div>
+       
+    </div>
+    </div>
+  	</div>
+	<div>
+		<p class="copyright">Politica de privacidade<br>Todos os direitos reservados © <span class="ano" id="ano"></span>. IDEA IN BOX.</p>
+    </div>  
+	</footer>
+	<script> document.getElementById("ano").innerHTML = new Date().getFullYear();</script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+    <script defer src="fontawesome/js/all.js"></script>
+    <script>"$(document).ready(function() {$('#subir').click(function(){$('html, body').animate({scrollTop:0}, 'slow');return false;});});"</script>
+   <script src="js/scripts.js"></script>  
+</body>
+</html>

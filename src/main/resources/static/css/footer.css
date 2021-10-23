@@ -1,0 +1,41 @@
+.rodape{
+	width: 100%;
+	float: left;
+	padding: 3% 4%;
+	background-color: #686767c9;
+	text-align: center;
+	margin-bottom: 0;
+
+}
+
+.social-icons a, .fa-envelope {
+	font-size: 1.5em;
+	color: #ffffff;
+	opacity: 0.7;
+	margin-right: 3%;
+
+}
+.social-icons a:last-child, .fa-envelope a:last-child{
+	margin: 0;
+}
+.social-icons a:hover{
+	color:#000440;
+}
+.copyright{
+	margin-top: 3%;
+	color: #ffffff;
+	opacity: 0.7;
+	font-size: 12px;
+	
+}
+
+#subir{
+	position:fixed;
+	bottom:224px;
+	right:50px;
+	font-size:60px;
+	color:#F3CA06;
+	opacity:0.9;
+
+	
+}

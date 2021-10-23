@@ -1,0 +1,172 @@
+
+body{
+	background: url("../img/team3-removebg-preview.png") no-repeat 50% 300px ;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 70px;
+   
+}
+.row{
+    margin: 0;
+}
+
+.container{
+    padding: 0;
+}
+
+p, li{
+    color: #000429;
+    font-size: 16px;
+}
+
+.btn-primary{
+    background-color:#000440;
+    width: 10%;
+    border-radius: 30px;
+    padding: 7px;
+    color: white;
+    margin-top: 10px;
+    margin-left:30px;
+    border: 0px;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.btn-primary:hover{
+    background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+}
+h5{
+	background-color:#000440;
+	color:white;
+	width:100%;
+	margin-top:85px;
+	padding:4px;
+}
+    
+li{
+    margin: 0px;
+    text-align: justify;
+    word-wrap: break-word;
+    
+}
+li span{
+    font-size: 14pt;
+        
+}
+ul{
+    padding: 10px;
+    
+}
+.form-control{
+	resize: none;
+}
+.form-select{
+    width: 15%;
+    position: absolute;
+    left: 69%;}
+    
+.data{display: block;
+  width: 115px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;}
+    
+.fa-star{
+	color: #DB8F02;
+	position:relative;
+	top:20px;
+	z-index:1;
+	
+}
+
+.categoria{
+	position: relative;
+	left: 78%;
+}
+
+#alerSugestaoCadastrada{
+	position:relative;
+	left:700px;
+	width:30%;
+	margin-top: 75px;
+	text-align:center;
+	background-color: rgb(197, 249, 185);}
+.btn-close{
+	position: relative;
+	left:50px;
+}
+.fa-exclamation-triangle{
+	font-size:25px;
+	position: relative;
+	right:50px;
+}	
+.fa-check-circle{
+	font-size:25px;
+	position: relative;
+	right:50px;
+}
+.hide{
+ display:none;}  	
+
+.btn-light{
+    background-color: #F3CA06;
+    color:#ffffff;
+    border-style: none;
+}
+.dark {
+    background: #0f1216 ;
+  }
+.dark main{
+      font-family: 'Roboto', sans-serif;
+      color:#ffffff
+    
+  }
+  
+.dark .tema button {
+    color: #ffffff;
+    background: #1c1c1c;
+    border-style: none;
+  }
+.dark .btn-primary{
+    background-color:linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+    width: 10%;
+    border-radius: 30px;
+    padding: 7px;
+    color: white;
+    margin-top: 12px;
+    border: 0px;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.dark .btn-primary:hover{
+    background:#000440;}
+ 
+
+.form-range{
+	width:125px;
+	heidth:2px;
+	z-index:2
+	
+ }
+input[type="range"]{
+  -webkit-appearance:none;
+  width:125px;
+  height:2px;
+ 
+ 
+}	
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:8px;
+  height:20px;
+  border-radius: 100%;
+  background: #DB8F02;
+  border: 3px solid #F3CA06;
+  z-index:3;
+  cursor: pointer;
+}
+
+.pagination{
+        left: 10%;
+    
+    }

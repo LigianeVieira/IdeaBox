@@ -1,0 +1,35 @@
+body{
+    background-image: url(../img/MicrosoftTeams-image-removebg-preview-yellow.png);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.container-fluid h2{
+    position: absolute;
+   margin-top: 23%;
+   text-align: center;
+   background-color:#F3CA06;
+   width: 99%;
+    color: white;
+    padding: 70px;
+}
+
+.btn-primary{
+    position: absolute;
+    background-color:#000440;
+    width: 15%;
+    border-radius: 30px;
+    padding: 8x;
+    color: white;
+    margin-top: 12px;
+    border: 0px;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+    left: 43%;
+    bottom: 38%;
+    font-size: 16pt;
+
+}
+.btn-primary:hover{
+   background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+}

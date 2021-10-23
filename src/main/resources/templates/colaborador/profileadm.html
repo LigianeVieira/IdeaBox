@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Perfil</title>
+  
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Configurações nossas -->
+<link rel="stylesheet" href="css/barra_navegacao.css">
+<link rel="stylesheet" href="css/profile.css">
+<!-- Fontawesome -->
+<link  rel="stylesheet" href="fontawesome/css/all.min.css" >
+</head>    
+
+<body>
+<!--Barra Navegação-->
+    <header>
+        <div class="container" id="nav-container">
+           <nav class="navbar navbar-expand-lg fixed-top">
+           <div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+              <a href="#" class="navbar-brand"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" 
+              aria-controls="navbar-links" aria-expanded="false" aria-label="Toogle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+             <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                 <div class="navbar-nav">
+                   <a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+                   <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+                   <a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+                   <a class="nav-item nav-link" id="exit-menu" href="/logout">Sair</a>
+                 </div>
+                 <div class="tema">
+					<button class="btn btn-light" onclick="mudaTema()"><i class="fas fa-moon"></i></button>
+				 </div>
+              </div>
+            </nav>
+        </div>
+    </header>
+<!--End Barra Navegação-->
+<!--Main -->
+    <main>
+    <h1>Bem vindo&nbsp;<span th:text="${administrador.nome}"></span>, ao seu perfil!</h1>
+        <div class="container">
+            <div class="row">
+               <div class="col">
+                 <div class="profile">
+                  <img class="admin" src="img/criative2-removebg-preview.png" alt="" >
+                  <h4> &nbsp;<span th:text="${administrador.nome}"></span></h4>&nbsp; 
+                  <h6><b>CPF:</b>&nbsp;<span th:text="${administrador.cpf}"></span></h6>
+                  <h6><b>Email:</b>&nbsp;<span th:text="${administrador.email}"></span></h6>
+                  <h6><b>Cargo:</b>&nbsp;<span th:text="${cargo.nome}"></span></h6>
+                 </div>
+                </div>
+                <div class="col">
+                <div class="Sugestoes">
+                <p><a href="/sugestaoADM#"><button class="btn btn-primary">Sugestões para analise &nbsp; <i class="fas fa-lightbulb"></i></button></a></p>
+                    <div class="collapse" id="collapseExample">
+                      <div class="card card-body w-100">
+                         <table class="table">
+                            <tbody>
+                               <tr th:each="sugestao : ${sugestoes}">
+                                 <td><span th:text="${sugestao.texto}"></span><a th:href="${(#mvc.url('SC#aprovarSugestao').arg(0, sugestao.id)).build()}"><i class="fas fa-check"></i></a>
+                               </tr>
+                            </tbody>
+                         </table>
+                      </div>
+                   </div> 
+               </div> 
+                <a href="/sugestoes"><button class="btn btn-primary" >Lista das Sugestões &nbsp; &nbsp;<i class="fas fa-lightbulb"></i></button> </a>    
+                <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Cadastros &nbsp;&nbsp;<i class="fas fa-address-card"></i></a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                   <li><a class="dropdown-item" href="/cadastrarColaborador"> Cadastrar Colaborador &nbsp;&nbsp;</a></li>
+                   <li><a class="dropdown-item" href="/cadastrarGerente"> Cadastrar Gerente &nbsp;&nbsp;</a></li>
+                 </ul>
+                </div> 
+                <a href="/colaboradores"><button class="btn btn-primary">Lista de Colaboradores  &nbsp;&nbsp;<i class="fas fa-address-card"></i></button></a>
+			</div>
+           </div>
+        </div>      
+     </main>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script defer src="fontawesome/js/all.js"></script>
+<script src="js/scripts.js"></script> 
+ </body>
+</html>

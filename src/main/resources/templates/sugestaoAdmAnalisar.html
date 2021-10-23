@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Sugestões a analisar</title>
+
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Configurações nossas -->
+<link rel="stylesheet" href="/css/barra_navegacao.css">
+<link rel="stylesheet" href="/css/sugestaoAdmAnalisar.css">
+<!-- Fontawesome -->
+<link  rel="stylesheet" href="fontawesome/css/all.min.css" >
+</head>
+
+<body>
+    <header>
+	   <div class="container" id="nav-container">
+		 <nav class="navbar navbar-expand-lg fixed-top">
+		 <div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+	        <a href="#" class="navbar-brand"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+			 aria-expanded="false" aria-label="Toogle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+			   <div class="navbar-nav">
+				  <a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+                  <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+                  <a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+                   <a class="nav-item nav-link" id="exit-menu" href="/logout" >Sair</a>
+				</div>
+              <div class="tema">
+                <button class="btn btn-light" onclick="mudaTema()"><i class="fas fa-moon"></i></button>
+              </div>
+			</div>
+		</nav>
+	</div>
+</header>
+<main>
+
+       <h5>Sugestões a analisar para possível implementação</h5>
+	     <div class="container-fluid">
+           <fieldset>
+            <table class="table table-primary table-striped">
+             <thead>
+               <tr>
+                <th scope="col"  class="col-3">Colaborador</th>
+                <th scope="col"  class="col-4">Cargo</th>
+                <th scope="col"  class="col-5">Data</th>
+                <th scope="col"  class="col-1">Ações</a></th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr th:each="sugestao : ${sugestoes}">
+               <div class="modal fade"  id="modalArquivo" th:id="*{'arquivoModal' + {sugestao.id}}" tabindex="-1" aria-labelledby="arquivoLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <h3>PERIGO<i class="fas fa-exclamation-triangle"></i></h3>
+               <div class="modal-body"><p>Ao clicar em confirmar você estara sujeito a fazer um download de fonte desconhecida, caso não tenha nenhum arquivo para tal sugestão o sistema ira lhe redirecionar para uma  tela branca com erro, retorne uma pagina em seu navegador para continuar</p></div>
+               <div class="modal-footer">
+               <a th:href="${(#mvc.url('FC#verAquivoSugestao').arg(0, sugestao.id)).build()}"><button type="button" class="btn btn-danger" >Confirmar<i class="fas fa-exclamation-triangle"></i></button></a>
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+              </div>
+           </div>
+         </div>
+       </div>
+                 <td ><span th:text="${sugestao.colaborador.nome}"></span>
+                 <td><span th:text="${sugestao.colaborador.cargo.nome}" ></span></td>
+                 <td><span th:text="${sugestao.dataEnvio}"></span></td>
+                 <td><div class="icons"><span class="sugestao"  data-bs-toggle="tooltip" data-bs-placement="rigth" title="Sugestão"><a href="#"><i class="far fa-comment" data-bs-toggle="modal" th:attr="data-bs-target='#sugestao' +*{sugestao.id}"></i></a></span>
+               <button type="button" class="btn btn-secundary "  data-bs-toggle="modal" th:attr="data-bs-target='#arquivoModal' +*{sugestao.id}" ><i class="fas fa-folder-open"  data-bs-toggle="tooltip" data-bs-placement="rigth" title="Arquivar Sugestão"></i></button>
+                <button type="button" class="btn btn-secundary" data-bs-toggle="modal" th:attr="data-bs-target='#exampleModal' +*{sugestao.id}"><i class="far fa-envelope"  data-bs-toggle="tooltip" data-bs-placement="rigth" title="FeedBack para Gerente"></i></button>
+                <div><button class="enviar" data-bs-toggle="tooltip" data-bs-placement="rigth" title="Arquivar Sugestão" onclick="arquivar()"><a th:href="${(#mvc.url('SC#arquivarADM').arg(0, sugestao.id)).build()}"><i class="fas fa-archive"></i></button></div></div>
+               </td> 
+<!-- Start Modal Sugestão-->
+          <div class="modal fade" id="sugestao" th:id="*{'sugestao' + {sugestao.id}}" tabindex="-1" aria-labelledby="sugestaoLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+               <div class="modal-header">
+                <h5 class="modal-title" id="sugestaoLabel">Sugestão</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body"><span th:text="*{sugestao.texto}"></span></div>
+               <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+              </div>
+           </div>
+         </div>
+       </div>
+<!--End Modal Sugestão-->
+<!--Start Modal Email -->
+        <div class="modal fade" th:id="*{'exampleModal' + {sugestao.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Retorno</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+               <form action="/enviarEmail1">
+                <div class="mb-3">
+                 <label for="recipient-name" class="col-form-label">Para: </label>
+                 <input type="text" class="form-control" id="recipient-name" th:value="${sugestao.colaborador.email}" name="email">
+                 <label for="recipient-name" class="col-form-label">Feedback </label>
+                 <input type="text" class="form-control" id="recipient-name"  name="text">
+                </div>
+               
+             </div>
+            <div class="modal-footer">
+             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Sair</button>
+             <button type="submit" class="btn btn-secondary">Enviar</button>
+             
+             </form>
+            </div>
+           </div>
+           
+         </div>
+       </div>
+<!--End Modal Email-->
+        </tr>
+       </tbody>
+       </table>
+      </fieldset>
+    </div>
+    <!-- Start Modal Sugestão-->
+          
+<!--End Modal Sugestão-->
+  </main>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script defer src="fontawesome/js/all.js"></script>
+<script src="js/scripts.js"></script>  
+
+</body>
+</html>

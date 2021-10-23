@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<title>Sugestões Pendentes</title>
+
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Configurações nossas -->
+<link rel="stylesheet" href="css/barra_navegacao.css">
+<link rel="stylesheet" href="css/sugestoesmaisvotadas.css">
+<!-- Fontawesome -->
+<link  rel="stylesheet" href="fontawesome/css/all.min.css" >
+
+</head>
+<body>
+  <header>
+	<div class="container" id="nav-container">
+	  <nav class="navbar navbar-expand-lg fixed-top">
+	  <div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+		<a href="#" class="navbar-brand"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toogle navigation">
+		<span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+		  <div class="navbar-nav">
+			 <a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+             <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+             <a class="nav-item nav-link" id="team-menu" href="/timeline/1">Timeline</a>
+             <a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+             <a class="nav-item nav-link" id="exit-menu" href="/logout" >Sair</a>
+		  </div>
+          <div class="tema">
+            <button class="btn btn-light" onclick="mudaTema()"><i class="fas fa-moon"></i></button>
+          </div>
+		</div>
+	  </nav>
+	</div>
+</header>
+  <main>
+     <h5>Sugestões pendentes para análise</h5>
+	   <div class="container-fluid">
+	    <fieldset>
+         <table class="table table-info table-striped">
+          <thead>
+           <tr>
+            <th scope="col">Sugestão</th>
+            <th scope="col">Categoria</th>
+            <th scope="col"  class="col-1">Ações</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr th:each="sugestao : ${sugestoes}">
+ <!--Start MODAL FILE -->
+        <div class="modal fade" th:id="*{'anexoModal' + {sugestao.id}}" tabindex="-1" aria-labelledby="anexoModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+           <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="anexoModalLabel">Anexar arquivo</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="/upload" enctype="multipart/form-data">
+               <div class="mb-3">
+                <input type="hidden" th:value="*{sugestao.id}" class="form-control" name="id" >
+                <label for="exampleInputPassword1" class="form-label">Faça upload do arquivo</label>
+                <label for="formFile" class="form-label"></label>
+                <input class="form-control" type="file" id="formFile" name="file">
+               </div>
+             
+           </div>
+          <div class="modal-footer">
+           <button type="submit" class="btn btn-secondary">Confirmar</button>
+           <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+<!-- End Modal File -->
+       <td><span th:text="${sugestao.texto}"></span></td>    
+       <td><span th:text="${sugestao.categoria}"></span></td>
+       <td><div class="icons">
+       <button class="aprovar" onclick="sugestaoAprovada()" ><a th:href="${(#mvc.url('SC#aprovarSugestao').arg(0, sugestao.id)).build()}"><i class="fas fa-check" data-bs-toggle="tooltip" data-bs-placement="rigth" title="Aprovar Sugestão"></i></a></button>
+	   <a  th:href="${(#mvc.url('SC#reprovarSugestao').arg(0, sugestao.id)).build()}"><i class="fas fa-times" data-bs-toggle="tooltip" data-bs-placement="rigth" title="Reprovar Sugestão"></i></a>
+	   <button type="button" class="btn btn-secundary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="far fa-envelope" data-bs-toggle="tooltip" data-bs-placement="rigth" title="FeedBack para Colaborador"></i></button>
+	   <span data-bs-toggle="tooltip" data-bs-placement="rigth" title="Anexar Estudo de Viabilidade"><button type="button" class="btn1" data-bs-toggle="modal" th:attr="data-bs-target='#anexoModal' +*{sugestao.id}" ><i class="fas fa-file-upload"></i></button></span>
+	   <button type="button" class="btn1" data-bs-toggle="modal" th:attr="data-bs-target='#editarModal' +*{sugestao.id}"><i class="far fa-edit" data-bs-toggle="tooltip" data-bs-placement="left" title="Editar"></i></button></div></td>
+ <!-- Start MODAL EMAIL -->
+	   <div class="col">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+          <div class="modal-content">
+           <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Retorno</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+             <form action="/enviarEmail1">
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Para: </label>
+                <input type="text" class="form-control" id="recipient-name" th:value="${sugestao.colaborador.email}" name="email">
+                <label for="recipient-name" class="col-form-label">Feedback: </label>
+                <input type="text" class="form-control" id="recipient-name"  name="text">
+              </div>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Sair</button>
+            <button type="submit" class="btn btn-secondary">Enviar</button>
+            </form>
+          </div>
+       </div>
+      </div>
+     </div>
+  </div>
+<!-- End Modal E-mail -->
+ <!-- MODAL EDITAR -->
+    <div class="modal fade" th:id="*{'editarModal' + {sugestao.id}}" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="editarModalLabel">Editar Sugestão</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+           <div class="modal-body">
+            <form method="post" action="/editar">
+             <div class="mb-3">
+              <label for="id"></label>
+              <input type="hidden" th:value="*{sugestao.id}" class="form-control" name="id" id="id">
+              <label for="exampleInputPassword1" class="form-label">Nova sugestão</label>
+              <input type="texto" class="form-control" id="texto" name="texto">
+            </div>
+            <select class="form-select" aria-label="Default select example" name="categoria">
+					<option selected>Categoria</option>
+					<option>ALIMENTAÇAO</option>
+					<option>INFORMATICA</option>
+					<option>INFRAESTRUTURA</option>
+					<option>SEGURANÇA</option>
+					<option>SISTEMAS</option>
+					<option>TRANSPORTE</option>
+					<option>OUTROS</option>
+				</select>
+           <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-outline-success">Aceitar</button>
+           </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+ <!--End  MODAL Editar-->
+     </tr>
+      </tbody>
+       </table>
+       </fieldset>
+      </div>
+   </main>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script defer src="fontawesome/js/all.js"></script>
+<script src="js/scripts.js"></script>  
+</body>
+</html>

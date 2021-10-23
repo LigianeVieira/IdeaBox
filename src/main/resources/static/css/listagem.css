@@ -1,0 +1,98 @@
+body{
+	 font-family: 'Roboto', sans-serif;
+    background-color: #f3f3f3;
+    color: aliceblue;
+}
+
+.container{
+	 margin-top: 86px;
+     width:95%;
+}
+
+.container-fluid{
+	margin-top: -10px;
+	padding-right:0;
+    padding-left:0;}
+    
+.btn-primary{
+
+	color: white;
+    margin-top: 25px; 
+    border-radius: 12px;
+    background-color:#000440;
+    border: none;
+    
+}
+
+.btn-primary:hover{
+    background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+}
+
+.btn-primary a{
+	text-decoration: none;
+	color: white;
+}
+.btn-secondary{background-color:#000440;}
+.icons{
+  width: 20px;
+  margin: 8px;
+}
+.fa-trash{color:#961F00;}
+.fa-edit{text-align: initial; 	color: #000440;	}
+.modal{
+	color: black;
+}
+
+.btn1{
+	 background-color: transparent;
+border: none
+}
+
+.fa-edit#inome{
+	text-align: initial
+	}
+.btn-light{
+    background-color: #F3CA06;
+    color:#ffffff;
+    border-style: none;
+}   
+.dark {
+    background: #0f1216;
+}
+.dark main{
+    font-family: 'Roboto', sans-serif;
+    color:#ffffff
+        
+}
+
+.dark .tema button {
+   color: #ffffff;
+   background: #1c1c1c;
+   border-style: none;
+   }
+.dark h6{
+    color:#ffffff;
+}
+.dark  .btn-primary{
+    color: white;
+    margin-top: 25px; 
+    border-radius: 12px;
+    background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+   border: none;
+    
+}
+.dark .btn-primary:hover{
+	 background-color:#000440;
+ 
+}      
+
+h5{
+	margin-top:3px;
+    font-size: 23px;
+    background-color: #000440;
+    color:white;
+    width: 100%;
+    padding: 5px;
+  
+    
+}

@@ -1,0 +1,123 @@
+/* Gerais */
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background: url("../img/criat2.png") no-repeat 100% 85%;
+    background-color: #f3f3f3;
+}
+.row{
+    margin: 0;
+}
+
+.container{
+    padding: 50px 0;
+}
+
+p, li{
+    color: #DB8F02;
+    font-size: 14px;
+}
+
+
+/* questionario*/ 
+
+.form-1{
+    margin-top: 140px;
+    margin-right: 90px;
+}
+.form-1 .form-control{
+    width: 400px;
+}
+.form-1 h2{
+    color:#DB8F02
+}
+.form-1 label{
+    padding: 5px;
+}
+.btn-primary{
+   position: absolute;
+    margin-top: 35px; 
+    border-radius: 12px;
+    background-color:#000440;
+    border: none;
+    left: 48%;
+    
+}
+.form-group2{
+margin-top: 45px;
+}
+.btn-secondary{
+	background-color:#000440;
+}
+.btn-primary:hover, btn-secondary:hover{
+   background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+}
+.form-control#SelectForm{
+	 text-transform: lowercase;
+}
+h5{
+    font-weight: 700;
+}
+h6{
+    font-size: 18px;
+    font-weight: 500;
+    color:#000440;
+}
+#alertCpf, #alertCpf2, #alertCpf3{
+	position:relative;
+	left:450px;
+	width:30%;
+	margin-top: 50px;
+	text-align:center;}
+#alertCpf4{position:relative;
+	left:450px;
+	width:40%;
+	margin-top: 50px;
+	text-align:center;}
+	}
+.btn-close{
+	position: relative;
+	left:50px;
+}
+.fa-exclamation-triangle{
+	font-size:25px;
+	position: relative;
+	right:50px;
+}	
+.fa-check-circle{
+	font-size:25px;
+	position: relative;
+	right:50px;
+}
+.hide{
+  display:none;}
+.btn-light{
+    background-color: #F3CA06;
+    color:#ffffff;
+    border-style: none;
+}
+.dark {
+    background: #0f1216;
+  }
+  .dark main{
+      font-family: 'Roboto', sans-serif;
+      color:#ffffff
+    
+  }
+  
+.dark .tema button {
+    color: #ffffff;
+    background: #1c1c1c;
+    border-style: none;
+  }
+.dark .btn-primary{
+   position: absolute;
+    margin-top: 35px; 
+    border-radius: 12px;
+    background:linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+    border: none;
+    left: 48%;}
+    
+.dark .btn-primary:hover{
+   background-color: #000440;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<title>Perfil</title>
+
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Configurações nossas-->
+<link rel="stylesheet" href="css/barra_navegacao.css">
+<link rel="stylesheet" href="css/profile.css">
+<!-- Fontawesome -->
+<link  rel="stylesheet" href="fontawesome/css/all.min.css" >
+<!-- JS-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/b77074ccd5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Start Barra Navegacao-->
+    <header>
+       <div class="container" id="nav-container">
+         <nav class="navbar navbar-expand-lg fixed-top">
+         <div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+           <a href="#" class="navbar-brand"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toogle navigation">
+               <span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+                    <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+                    <a class="nav-item nav-link" id="team-menu" href="/timeline/1">Timeline</a>
+                    <a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+                    <a class="nav-item nav-link" id="exit-menu" href="/logout">Sair</a>
+                  </div>
+                  <div class="tema">
+                    <button class="btn btn-light" onclick="mudaTema()"><i class="fas fa-moon"></i></button></div>
+               </div>
+            </nav>
+        </div>
+    </header>
+<!-- End Barra Navegacao-->
+    <main>
+     <h1>Bem vindo&nbsp;<span th:text="${gerente.nome}"></span>, ao seu perfil!</h1>
+        <div class="container">
+          <div class="row">
+           <div class="col">
+            <div class="profile">
+              <img class="gerente" src="img/newideia-removebg-preview.png" alt="">
+              <h4> &nbsp;<span th:text="${gerente.nome}"></span></h4>&nbsp;
+              <h6><b>CPF:</b>&nbsp;<span th:text="${gerente.cpf}"></span></h6>
+              <h6><b>Cargo:</b>&nbsp;<span th:text="${gerente.cargo.nome}"></span></h6>
+              <h6><b>Email:</b>&nbsp;<span th:text="${gerente.email}"></span></h6>
+           </div>
+         </div>
+       <div class="col">
+         <div class="contador">
+           <div class="row align-items-start">
+             <div class="col">
+              <h6>Sugestões</h6>
+              <span th:text="${#lists.size(sugestoesGerente)}"></span>
+             </div>
+             <div class="col">
+              <h6>Avaliações</h6>
+              <p><span th:text="${gerente.totalSugestoesAvaliadas}"></span></p>
+             </div>
+           </div>
+         </div>
+         <div class="Sugestoes">
+           <p><a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+           Suas Sugestões &nbsp; <i class="fas fa-lightbulb"></i></a></p>
+             <div class="collapse" id="collapseExample">
+              <div class="card card-body w-100">
+               <table class="table">
+                <tbody>
+                 <tr th:each="sugestao : ${sugestoesGerente}">
+                  <td><span th:text="${sugestao.texto}"></span>
+                   <button type="button" class="btn1" data-bs-toggle="modal" th:attr="data-bs-target='#exampleModal' +*{sugestao.id}"><i class="far fa-edit"></i></button>
+<!--Modal-->
+       <div class="modal fade" th:id="*{'exampleModal' + {sugestao.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+          <div class="modal-content">
+           <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Sugestão</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <form method="post" action="/editar">
+            <div class="mb-3">
+             <label for="id"></label>
+             <input type="hidden" th:value="*{sugestao.id}" class="form-control" name="id" id="id" >
+             <label for="texto" class="form-label">Nova sugestão</label>
+             <input type="texto" th:value="*{sugestao.texto}" class="form-control" id="texto" name="texto">
+           </div>
+           <label >Categoria</label>
+           <select class="form-select" aria-label="Default select example" name="categoria">
+					<option selected>ALIMENTAÇAO</option>
+					<option>INFORMATICA</option>
+					<option>INFRAESTRUTURA</option>
+					<option>SEGURANÇA</option>
+					<option>SISTEMAS</option>
+					<option>TRANSPORTE</option>
+					<option>OUTROS</option>
+				</select>
+          <div class="modal-footer"></div>
+           <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-outline-success">Aceitar</button>
+           </form>
+         </div>
+        </div>
+       </div>
+     </div>
+     
+<!--End Modal-->
+       </td>
+        </tr>
+        </tbody>
+         </table>
+          </div>
+          </div>
+           </div>
+   
+        <div class="dropdown">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownSugestao" data-bs-toggle="dropdown" aria-expanded="false">Sugestões &nbsp;&nbsp;<i class="fas fa-lightbulb"></i></a>
+           <ul class="dropdown-menu" aria-labelledby="dropdownSugestao">
+            <li><a class="dropdown-item" href="/pendentes#"> Sugestões Pendentes &nbsp;&nbsp;</a></li>
+            <li><a class="dropdown-item"  href="/topsugestoes#"> Sugestões mais votadas &nbsp;&nbsp;</a></li>
+           </ul>
+        </div>
+        <div class="dropdown">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownCadastro" data-bs-toggle="dropdown" aria-expanded="false" >Cadastros &nbsp;&nbsp;<i class="fas fa-user-plus" ></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownCadastro">
+             <li><a class="dropdown-item" href="/cadastrarColaborador"> Cadastrar Colaborador &nbsp;&nbsp;</a></li>
+             <li><a class="dropdown-item" href="/cargos"> Cadastrar Cargos &nbsp;&nbsp;</a></li>
+           </ul>
+          </div>    
+         </div>
+        </div>
+       </div>
+   </main>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script defer src="fontawesome/js/all.js"></script>
+<script src="js/scripts.js"></script>  
+
+</body>
+</html>

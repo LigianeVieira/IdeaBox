@@ -1,0 +1,92 @@
+body{
+   font-family: 'Roboto', sans-serif;
+   background-color: #f3f3f3;
+   
+}
+
+.container{
+  margin-top: 86px;
+   width:95%;
+}
+h5{
+    margin-top: 3px;
+    font-size: 23px;
+    background-color: #000440;
+    color: #fff;
+    width: 100wp;
+    padding: 5px;
+    
+    
+}
+.container-fluid{
+	margin-top: -10px;
+    width: 100%;
+    z-index: 1;
+    text-align: justify;
+    padding-right:0;
+    padding-left:0;
+    
+}
+
+.email, .doc{
+    
+    content: icon;
+    width: 10px;    
+}
+.icons{
+   width: 20px;
+  margin: 8px;
+   
+}
+.fa-comment{
+color: #F21DBF;
+}
+
+.fa-folder-open{color:#F3CA06;
+position: relative;left: -13px;}
+.fa-envelope{color:#000440;position: relative;left: -13px;}
+.fa-archive{
+	color:#FA6109;
+	position: relative;
+	left: -3px;
+}
+.enviar{
+	background-color: transparent;
+    border: none;
+    border-style: none;	
+}
+
+.col-1{
+    width:15%;
+}
+th{
+    text-align: center;
+    border: #000440;
+}   
+.tabela{
+	position: absolute;
+	margin-top: 0%;
+	padding: 0px;
+}
+.btn-light{
+    background-color: #F3CA06;
+    color:#ffffff;
+    border-style: none;
+}   
+.dark {
+    background:#0f1216;
+}
+.dark main{
+    font-family: 'Roboto', sans-serif;
+    color:#ffffff
+        
+}
+
+.dark .tema button {
+   color: #ffffff;
+   background: #1c1c1c;
+   border-style: none;
+   }
+   h3{
+   text-align: center;}
+     

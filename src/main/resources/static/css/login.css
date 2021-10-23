@@ -1,0 +1,117 @@
+/* Gerais */
+
+body{
+	background: url("../img/fundo2.jpg")no-repeat;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f3f3;
+    color: aliceblue;
+}
+.row{
+    margin: 0;
+}
+
+.container{
+    margin-top: 11%;
+    
+}
+
+p, li{
+    color: #444;
+    font-size: 14px;
+    padding:0;
+}
+h3{
+	font-size: 15px;
+    font-weight: 500;
+    color:#000440;
+}
+h5{ font-size: 18px;
+    font-weight: 700;
+    color:#000440;
+}
+
+.form-1 .form-control{
+    width: 100%;
+    
+   
+}
+.form-1 h2{
+    color:#ffae00;
+    font-size:24px;
+}
+.form-1 label{
+   align-items:center;
+    padding-bottom:0;
+    font-size:14px;
+    width:100%;
+   
+}
+.card{
+    
+    box-shadow: 2px 2px 2.5px rgba(0, 0, 0, 0.5);
+    background-color: #F3CA06;
+     border-radius: 25px;
+    padding:10px;
+}
+.card-top{
+    text-align: center;
+    height:150px;
+}
+.card-top h2{
+    color: rgb(255, 255, 255);
+}
+.card-top p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    
+}
+.card-group{
+    margin-bottom: 8px;
+    
+}
+.lnr-eye {
+    position: absolute;
+    bottom: 165px;
+    right: 30px;
+    width: 30px;
+    cursor: pointer;
+    background-color:transparent;
+    border:none;
+    
+    }
+.imglogin{
+    
+    width: 115px;
+   
+}
+.titulo{
+    font-size: 18pt;
+}
+
+.btn-primary{
+    background-color:#000440;
+    width: 100%;
+    border-radius: 25px;
+    padding: 8px;
+    color: white;
+    margin-top: 2px;
+    border: 0px;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size:14px;
+    align-items:center;
+    
+
+}
+.btn-primary:hover, .btn-secondary:hover{
+    background-image: linear-gradient(to left,#F3B507,#DB8F02,#F3CA06);
+}
+
+
+.btn-secondary{
+	background-color:#000440;
+	 outline: 0;
+	 border: 0px;
+}	
+	
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>IdeaBox Login</title>
+    
+<!--Fonte-->
+<link rel="stylesheet" href="Roboto/Roboto-Regular.ttf">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!--Configurações nossas -->
+<link rel="stylesheet" href="css/barra_navegacao.css">
+<link rel="stylesheet" href="css/login.css">
+ <!-- lib de icons -->
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+ 
+</head>
+ <body>
+  
+        <header>
+        
+           <div class="container" id="nav-container">
+               <nav class="navbar navbar-expand-lg fixed-top">
+               <div><img id="logo" src="img/MicrosoftTeams-image-removebg-preview-Branco.png" alt="IdeaBox"></div>
+                <a href="#" class="navbar-brand"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" 
+                aria-controls="navbar-links" aria-expanded="false" aria-label="Toogle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                   <div class="navbar-nav">
+                   
+                    <a class="nav-item nav-link" id="home-menu" href="/">Home</a>
+                    <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
+                    <a class="nav-item nav-link" id="contact-menu" href="/profile">Perfil</a>
+                    <a class="nav-item nav-link" id="exit-menu" href="/logout">Sair</a>
+                    </div>
+                </div>
+               </nav>
+           </div>
+        </header>
+
+  <main>
+
+        <div class="container">
+        <div class="row">
+        <div class="col">
+        <div class="alert alert-danger" role="alert" th:if="${msg}"><strong th:text="${msg}"></strong>
+        </div>
+        </div>
+          <div class="col">
+          <form class="form-1" method="post" action="/login" th:object="${colaborador}">
+          <div class="card">
+            <div class="card-top">
+            <img class="imglogin" src="img/criatividade-removebg-preview.png" alt="">
+             <h2 class="titulo">Usuario</h2>
+             <p>Faça login para continuar</p>
+             </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Login</label>
+              <input type="text" id= "email" class="form-control" th:field="*{login}" placeholder="Digite seu login">
+             <div  class="form-text"></div>
+            </div>
+               <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password"  class="form-control"  th:field="*{senha}" placeholder="Digite sua senha" size="8" required>
+              <button type="button" class ="lnr lnr-eye" onClick = "mostrarOcultarSenha()"></button>
+               </div>
+            <div class="mb-3 form-check">
+            <label>Lembrar</label>
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              </div>
+            <button type="submit" class="btn btn-primary">ENTRAR</button>
+            <button type="button" class="btn btn-secundary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><p>Esqueceu a senha? Click Aqui!</p></button>
+            </div>
+          </form>
+       </div>
+         <div class="col">
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+           <div class="modal-content">
+           <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Redefinir senha</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+      <div class="modal-body">
+        <form action="/emailsenha">
+          <div class="mb-3">
+          <h3>Digite seu e-mail para redefinir sua senha que lhe enviaremos um link com as instruções!</h3>
+            <label for="recipient-name" class="col-form-label">E-mail:</label>
+            <input type="text" class="form-control" id="recipient-name" name="email">
+          </div>
+          
+      </div>
+         <div class="modal-footer">
+         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Sair</button>
+         <button type="submit" class="btn btn-secondary">Enviar</button>
+         </form>
+         </div>
+      </div>
+    </div>
+   </div>
+     </div>
+    </div>
+     </div>
+   </main>
+   
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script src="js/scripts.js"></script>
+
+</body> 
+</html>
